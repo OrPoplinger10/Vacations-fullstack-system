@@ -1,0 +1,17 @@
+.graphBox{
+
+    margin-top: 100px;
+    
+}
+
+.Graph {
+
+    width: 1000px;
+    margin: auto;
+    background-color: rgb(229, 250, 251);
+    
+}
+
+h2{
+    text-align: center;
+}

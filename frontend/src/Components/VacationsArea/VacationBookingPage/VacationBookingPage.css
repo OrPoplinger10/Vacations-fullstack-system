@@ -1,0 +1,175 @@
+.section {
+
+	position: relative;
+	height: 100vh;
+}
+
+.section .section-center {
+
+	position: absolute;
+	top: 55%;
+	left: 0;
+	right: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#booking {
+	
+	background: rgba(11, 12, 11, 0.33);
+}
+
+.description{
+
+    overflow: scroll;
+    height: 300px;
+
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.booking-form {
+
+	position: relative;
+	max-width:1070px;
+	margin: auto;
+	background: #fff;
+	border-radius: 6px;
+	
+}
+
+.booking-form .booking-bg {
+
+	position: absolute;
+	left: 25px;
+	top: -25px;
+	background-image: url('../../../Assets/images/airplane-dark.jpg');
+	background-size: cover;
+	background-position: center;
+	bottom: -25px;
+	width: 400px;
+	padding: 25px;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+
+
+.booking-form .booking-bg::before {
+
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background:rgba(91, 173, 187, 0.78);
+}
+
+.booking-form > form {
+	
+	margin-left: 425px;
+	padding: 30px;
+}
+
+.booking-form .form-header {
+
+	margin-bottom: 30px;
+	margin-top: 50px;
+	position: relative;
+	z-index: 20;
+}
+
+.booking-form .form-header h2 {
+
+	font-family: 'Playfair Display', serif;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-weight: 900;
+	color: #fff;
+	font-size: 42px;
+	text-transform: capitalize;
+}
+
+.booking-form .form-header h3, p {
+
+	color: #fff;
+	font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.booking-form .form-group {
+	
+	margin-bottom:15px;
+}
+
+
+
+  .form-control {
+
+	background-color: #fff;
+	height:40px;
+	padding: 0px 15px;
+	color: #151515;
+	border: 1px solid #e5e5e5;
+	font-size: 16px;
+	font-weight: 700;
+	border-radius: 40px;
+    margin-left: 8px;
+    width:90%;
+	
+}
+
+.booking-form .form-label {
+	color: #6ac1c4;
+	font-size: 15px;
+	font-weight: 400;
+	margin-left: 20px;
+    
+}
+
+.booking-form .form-btn {
+	margin-top: 30px;
+}
+
+.booking-form .submit-btn {
+	display: block;
+	width: 100%;
+	color: #fff;
+	background-color: rgba(91, 173, 187, 0.78);
+	font-weight: 700;
+	font-size: 18px;
+	border: none;
+	border-radius: 40px;
+	height: 55px;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+    cursor: pointer;
+}
+
+.booking-form .submit-btn:hover,
+.booking-form .submit-btn:focus {
+	background-color: rgb(39, 105, 105);
+}
+
+@media only screen and (max-width: 768px) {
+	.booking-form .booking-bg {
+		position: relative;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: -15px;
+		width: 95%;
+		margin: auto;
+	}
+	.booking-form>form {
+		margin-left: 0px;
+	}
+
+	.form-control{
+		width: 100%;
+	}
+}
+

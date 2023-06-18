@@ -1,0 +1,65 @@
+.AdminVacations {
+    display: inline-block;
+    margin-top: 90px;
+    text-align: center;
+    margin-left: 20px;
+    
+	
+}
+
+.ri-add-line {
+
+    position: absolute;
+    top:-8px;
+    font-size: 40px;
+    cursor: pointer;
+    color:azure
+    
+   
+}
+
+
+.ri-download-cloud-2-fill {
+    position: absolute;
+    top:2px;
+    font-size: 25px;
+    cursor: pointer;
+    color:azure
+}
+
+.ri-bar-chart-2-fill {
+
+    margin-left: 5px;
+    color:azure
+
+}
+
+.csv {
+    
+    margin-left: 60px;
+}
+
+.csvIcon {
+
+    margin-left: 160px;
+    
+}
+
+.addAndDownload {
+
+    display: flex;
+    position: relative;
+    text-align: left;
+    margin-left: 160px;
+    font-size: 20px;  
+}
+
+.graph{
+    
+    margin-left: 42px;
+}
+
+
+
+
+

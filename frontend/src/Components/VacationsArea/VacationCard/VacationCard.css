@@ -1,0 +1,63 @@
+.VacationCard {
+
+    display: inline-flex;
+    height: 450px;
+    margin: 10px;
+    position: relative;
+      
+}
+
+.destinationVacationCard{
+
+    
+    position: relative;  
+    bottom: 5px;
+    
+}
+
+.descriptionVacationCard{
+
+    overflow: scroll;
+    
+    height: 150px;
+
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+.button{
+    
+    top: 20px;
+    bottom: 20px;
+    width: 260px;
+       
+}
+
+.date{
+
+    position: absolute;
+    bottom: 15px;
+    right: 16px;
+    width: 300px;
+    height: 25px;
+    pointer-events: none;
+    
+    
+}
+
+.likesBar {
+   
+   display: flex;
+   position: absolute;
+   left: 3px;
+   top: 5px;  
+
+}
+
+.navigateLike {
+
+    width: 50px;
+}

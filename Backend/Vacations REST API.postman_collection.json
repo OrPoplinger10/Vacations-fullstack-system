@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "d4c98a50-fb3c-4bb9-8393-bad6579ae943",
+		"name": "Vacations REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"or\",\r\n    \"lastName\": \"poplinger\",\r\n    \"email\": \"orpoplinger777@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"roleId\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bart@gmail.com\",\r\n    \"password\": \"123456\"\r\n\r\n}\r\n\r\n\r\n\r\n// {\r\n//     \"email\": \"almogcohen19@gmail.com\",\r\n//     \"password\": \"Almog1234\"\r\n\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Add Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"David Levi\",\r\n    \"adults\": 2,\r\n    \"kids\": 2,\r\n    \"roomsNumber\": 2,\r\n    \"phoneNumber\": \"0504464602\"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/orders/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Vacations",
+			"item": [
+				{
+					"name": "Get all vacations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/vacations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add vacation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vacationDestination",
+									"value": "Paris",
+									"type": "default"
+								},
+								{
+									"key": "vacationDescription",
+									"value": "The best vacation ever!!!",
+									"type": "default"
+								},
+								{
+									"key": "startDate",
+									"value": "2023-08-25T21:00:00.000Z",
+									"type": "default"
+								},
+								{
+									"key": "endDate",
+									"value": "2023-08-30T21:00:00.000Z",
+									"type": "default"
+								},
+								{
+									"key": "price",
+									"value": "3650",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/97254/OneDrive/מסמכים/paris2.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/vacations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update followers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/follow/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"follow",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update vacations",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vacationDestination\": \"Dubai\",\r\n        \"vacationDescription\": \"Dubai is the second largest emirate in the United Arab Emirates (UAE) sharing borders with Abu Dhabi in the south, Sharjah in the northeast, and the Sultanate of Oman in the southeast. The emirate of Dubai covers an area of 4,114 square kilometres.\\r\\n\",\r\n        \"startDate\": \"2023-06-13T21:00:00.000Z\",\r\n        \"endDate\": \"2023-06-20T21:00:00.000Z\",\r\n        \"price\": 4900,\r\n        \"imageName\": \"48c24896-807e-4c7e-b15c-d6d72495ff19.jpg\"\r\n        \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/vacations/44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vacation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"vacationDestination\": \"London\",\r\n        \"vacationDescription\": \"It's time to take the family on an amazing vacation in London, you and your family can enjoy a spectacular\",\r\n        \"startDate\": \"2023-06-12T21:00:00.000Z\",\r\n        \"endDate\": \"2023-06-18T21:00:00.000Z\",\r\n        \"price\": 1500,\r\n        \"imageName\": \"test.jpg\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/vacations/44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/vacations/images/london.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								"images",
+								"london.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6MTMsImZpcnN0TmFtZSI6IkJhcnQgIiwibGFzdE5hbWUiOiJTaW1wcyIsImVtYWlsIjoiYmFydEBnbWFpbC5jb20iLCJyb2xlSWQiOjJ9LCJpYXQiOjE2ODY2NTE4NTUsImV4cCI6MTY4NjY2MjY1NX0.aTqnI7wZaVF_oXrbxv8CFn34-MXiiWGdL-uia6srGcw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6MTMsImZpcnN0TmFtZSI6IkJhcnQgIiwibGFzdE5hbWUiOiJTaW1wcyIsImVtYWlsIjoiYmFydEBnbWFpbC5jb20iLCJyb2xlSWQiOjJ9LCJpYXQiOjE2ODY4Mjg5NTAsImV4cCI6MTY4NjgzOTc1MH0.QV7k-wjKJhG02eTDXtcXbWowHWU8tMlGU5-SAGW-ygU",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

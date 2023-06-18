@@ -1,0 +1,23 @@
+.editAndDelete {
+    display: flex;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+ 
+}
+
+.delete, .edit{
+    
+    font-size:25px;
+    margin-right: 10px;
+    cursor: pointer;
+    
+    
+}
+
+
+.ri-delete-bin-fill, .ri-settings-5-fill{
+
+color:rgb(247, 253, 253)
+
+}
