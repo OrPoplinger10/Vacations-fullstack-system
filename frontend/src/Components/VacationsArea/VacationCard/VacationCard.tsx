@@ -7,7 +7,7 @@ import { vacationsStore } from "../../../Redux/VacationsState";
 import dataService from "../../../Services/DataService";
 import notifyService from "../../../Services/NotifyService";
 import { authStore } from "../../../Redux/AuthState";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 interface VacationCardProps {
     vacation: VacationModel;	
@@ -39,6 +39,7 @@ useEffect(()=>{
           setFollowersCount(localVacations[index]?.followersCount);
       }
   });
+
   
   return () => unsubscribe();
 
@@ -73,6 +74,31 @@ function formattingDate(propsDate:string): string{
   const localDateString = `${year}-${month}-${day}`;
   return localDateString
 }
+
+const navigate = useNavigate();
+
+// React.MouseEvent is a generic type provided by React that represents the mouse event. In this case:
+// React.MouseEvent<HTMLButtonElement> specifies a mouse event that occurs on the <button> element.
+  function handleClickBooking(event: React.MouseEvent<HTMLButtonElement>, vacationId: number, startDate: string, endDate: string) {
+
+    // This prevents the default behavior of the button click, which is to navigate to a new page:
+    event.preventDefault();
+
+    // returns the current date in the format YYYY-MM-DD:
+    // We only need the date part, so we split the string into a "T" character and take the first element of the array.
+    const currentDate = new Date().toISOString().split("T")[0];
+
+    if (currentDate >= startDate && currentDate <= endDate) {
+      // Display a message to the user indicating the vacation is ongoing:
+      alert("This vacation is currently ongoing.");
+    } else if (currentDate > endDate) {
+      // Display a message to the user indicating the vacation has ended:
+      alert("This vacation has already ended.");
+    } else {
+      // Navigate to the booking page:
+      navigate(`/vacations/booking-vacation/${vacationId}`);
+    }
+  }
     return (
       
       <div className="VacationCard">
@@ -101,11 +127,12 @@ function formattingDate(propsDate:string): string{
         <Typography className="descriptionVacationCard" variant="body2" color="text.secondary">
           {props.vacation.vacationDescription}
         </Typography>
-        <NavLink to={"/vacations/booking-vacation/" + props.vacation.vacationId}>
-        <Button className="button" variant="contained">
+        <Button className="button" variant="contained"
+        //The purpose of this code is to connect the button click event to the handleClickBooking function and pass relevant information to it to properly validate the button.
+        onClick={(event) => handleClickBooking(event, props.vacation.vacationId, props.vacation.startDate, props.vacation.endDate)}>
           $ {props.vacation.price} 
        </Button>
-       </NavLink>
+       
        </CardContent>
     
        </Card>
