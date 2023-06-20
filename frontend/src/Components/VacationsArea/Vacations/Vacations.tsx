@@ -64,7 +64,9 @@ function Vacations(): JSX.Element {
     
     return (
         <div className="Vacations">
-            <h1>Our vacations</h1>
+            <div className="mainTitle">
+            <h1 >Our vacations</h1>
+            </div>
 
             <div className="filterMenu">
                 <FormControlLabel control={<Checkbox />} onChange={(event) => handleFilterChange(Filters.IS_FOLLOWING, (event.target as HTMLInputElement).checked)} label="Favorites" />
