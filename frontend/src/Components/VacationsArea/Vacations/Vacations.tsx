@@ -65,7 +65,7 @@ function Vacations(): JSX.Element {
     return (
         <div className="Vacations">
             <div className="mainTitle">
-            <h1 >Our vacations</h1>
+            <h1 className="mainTitleUser" >Our vacations</h1>
             </div>
 
             <div className="filterMenu">

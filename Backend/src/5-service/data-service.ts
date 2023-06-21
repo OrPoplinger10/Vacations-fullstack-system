@@ -7,6 +7,7 @@ import { OkPacket } from "mysql";
 import imageHandler from "../4-utils/image-handler";
 import socketIoService from "./socketIoService";
 import OrderModel from "../2-models/order-model";
+import ContactModel from "../2-models/contact-model";
 
 // Get all vacations from database:
 async function getAllVacations(userId: number): Promise <VacationModel[]> { //userId: number
@@ -110,6 +111,27 @@ async function addOrder(order: OrderModel): Promise <OrderModel>{
 
 };
 
+// Add order
+async function addContact(contact: ContactModel): Promise <ContactModel> {
+
+    // Validate:
+    contact.validateContactPost();
+
+    // Create query:
+    const sql =`INSERT INTO contacts VALUES(DEFAULT, ?, ?, ?, ?)`;
+
+    // Execute:
+    const result: OkPacket =await dal.execute(sql,[
+    contact.fullName, contact.email, contact.phone, contact.message]);
+
+    // Set back the created id:
+    contact.contactId = result.insertId;
+
+    // return contact
+    return contact
+
+}
+
 // Update vacation:
 async function updateVacations(vacation: VacationModel): Promise <vacationModel>{
     
@@ -174,25 +196,6 @@ async function deleteVacation(vacationId: number): Promise <void>{
     await imageHandler.deleteImage(imageName);
 }; 
 
-// // Get one order:
-// async function getOneOrder(orderId: number): Promise <OrderModel>{
-
-//     // Create query
-//     const sql = `SELECT * FROM orders
-//     WHERE orderId = ?`;
-    
-//     // Get one order
-//     const orders = await dal.execute(sql,[orderId]);
-
-//     // Take first order:
-//     const order = orders[0];
-
-//     // If id not found:
-//     if(!order) throw new ResourceNotFoundError(orderId);
-
-//     // Return Them:
-//     return order;
-// };
 
 // Get vacations image name from db
 async function getVacationImageName(vacationId: number): Promise<string> {
@@ -241,10 +244,10 @@ async function updateFollowers(userId:number, vacationId: number, action: number
 
 export default{
     getAllVacations,
-    // getOneOrder,
     getOneVacation,
     addVacation,
     addOrder,
+    addContact,
     updateVacations,
     deleteVacation,
     updateFollowers

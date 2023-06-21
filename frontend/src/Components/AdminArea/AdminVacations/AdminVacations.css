@@ -110,7 +110,7 @@
 
 
 @media (max-width: 537px) {
-    h1{
+    .mainTitleAdmin{
         background-image: linear-gradient(to top right, #49fab3, #f9f7f7);
         color: transparent;
         background-clip: text;

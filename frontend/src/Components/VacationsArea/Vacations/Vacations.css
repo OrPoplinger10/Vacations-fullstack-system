@@ -6,8 +6,9 @@
 	
 }
 
-h1 {
+.mainTitleUser{
 
+    
     position: relative;
     top: -15px;
     
@@ -26,6 +27,10 @@ h1 {
 	.filterMenu{
 
         color: rgb(242, 16, 16);
+    }
+
+    .mainTitleUser {
+       color: aliceblue;
     }
 }
 

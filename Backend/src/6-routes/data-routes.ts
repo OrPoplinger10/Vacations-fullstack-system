@@ -6,6 +6,7 @@ import verifyLoggedIn from "../3-middleware/verify-logged-in";
 import verifyAdmin from "../3-middleware/verify-admin";
 import cyber from "../4-utils/cyber";
 import OrderModel from "../2-models/order-model";
+import ContactModel from "../2-models/contact-model";
 
 const router = express.Router();
 
@@ -99,22 +100,6 @@ router.delete("/vacations/:vacationId([0-9]+)", verifyAdmin ,async(request: Requ
     }
 });
 
-// // GET http://localhost:4000/api/order/:orderId
-// router.get("/orders/:orderId([0-9]+)", verifyLoggedIn , async(request: Request, response: Response, next: NextFunction) => {
-
-//     try{
-
-//        const orderId = +request.params.orderId
-//        const order = await dataService.getOneOrder(orderId);
-//        response.json(order);
-
-//     }
-//     catch(err: any){
-
-//         next(err)
-//     }
-// });
-
 // POST http://localhost:4000/api/orders
 router.post("/orders/:vacationId([0-9]+)", verifyLoggedIn ,async(request: Request, response: Response, next: NextFunction) => {
 
@@ -124,6 +109,22 @@ router.post("/orders/:vacationId([0-9]+)", verifyLoggedIn ,async(request: Reques
         const order = new OrderModel(request.body);
         const addedOrder = await dataService.addOrder(order);
          response.status(201).json(addedOrder);
+
+    }
+    catch(err: any){
+
+        next(err)
+    }
+});
+
+// POST http://localhost:4000/api/contacts
+router.post("/contacts" ,async(request: Request, response: Response, next: NextFunction) => {
+
+    try{
+        
+        const contact = new ContactModel(request.body);
+        const addedContact = await dataService.addContact(contact);
+         response.status(201).json(addedContact);
 
     }
     catch(err: any){
