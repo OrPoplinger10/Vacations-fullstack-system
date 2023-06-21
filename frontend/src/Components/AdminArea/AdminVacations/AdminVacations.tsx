@@ -42,8 +42,8 @@ function AdminVacationsArea(): JSX.Element {
         <div className="AdminVacations">
             <h1>Admin vacations</h1>
             
-        <div className="addAndDownload">
-           <div> Add vacation : 
+        <div className="addCsvGraph">
+           <div className="add"> Add vacation : 
            <NavLink to="/vacations/add"><i className="ri-add-line"></i></NavLink>
            </div>
            <div className="csv"> Download Csv : 
@@ -53,6 +53,7 @@ function AdminVacationsArea(): JSX.Element {
            <NavLink to="/admin-graph"><i className="ri-bar-chart-2-fill"></i></NavLink>
            </div>
            </div>
+           
             
          {currentPosts.map(v => <AdminVacationCard key={v.vacationId} vacation={v} /> )}  
 

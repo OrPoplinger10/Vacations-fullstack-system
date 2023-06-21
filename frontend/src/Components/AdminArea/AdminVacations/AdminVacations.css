@@ -45,11 +45,11 @@
     
 }
 
-.addAndDownload {
+.addCsvGraph {
 
     display: flex;
     position: relative;
-    text-align: left;
+    text-align: center;
     margin-left: 160px;
     font-size: 20px;  
 }
@@ -60,6 +60,106 @@
 }
 
 
+
+@media (max-width: 900px) {
+
+    .addCsvGraph{
+
+        display: block;
+        text-align: center;
+        position: relative;
+        margin-left: -5px;
+        background-color: rgb(244, 248, 245);
+        border-radius: 50px;
+        padding: 15px;
+         
+    }
+
+    .ri-add-line {
+
+        color: black;
+        position: absolute;
+        top:6px;
+        
+         
+     }
+
+    .ri-download-cloud-2-fill{
+        position: absolute;
+        top:32px;
+        margin-left: 5px;
+        color: black;
+        margin-top: 13px;
+    }
+
+    .ri-bar-chart-2-fill {
+
+        color: black;
+    }
+
+    .csv{
+        margin-left: -50px;
+    }
+
+    .add {
+
+        margin-left: -60px;
+
+    }
+}
+
+
+@media (max-width: 537px) {
+    h1{
+        background-image: linear-gradient(to top right, #49fab3, #f9f7f7);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+
+    .ri-add-line {
+
+       color: black;
+       position: absolute;
+       top:6px;
+       
+        
+    }
+
+    .ri-download-cloud-2-fill {
+
+     color: black;
+     margin-top: 22px;
+
+    }
+
+
+    .ri-bar-chart-2-fill {
+
+        color: black;
+    }
+
+    .addCsvGraph {
+
+     background-color: rgb(244, 248, 245);
+     border-radius: 50px;
+     margin-right: 5px;
+     height: 140px;
+     padding: 15px;
+    
+    }
+
+    .add {
+        margin-bottom: 8px;
+    }
+
+    .graph{
+         
+        margin-top: 8px;
+    }
+
+ 
+}
 
 
 

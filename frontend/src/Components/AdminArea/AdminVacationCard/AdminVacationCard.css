@@ -24,6 +24,7 @@
 
 .adminCardButton{
     
+    pointer-events: none;
     top: 20px;
     bottom: 20px;
     width: 260px;
@@ -42,29 +43,7 @@
     
 }
 
- /* .editAndDelete {
-    display: flex;
-    position: absolute;
-    left: 10px;
-    top: 5px;
  
-}
-
-.delete, .edit{
-    
-    font-size:25px;
-    margin-right: 10px;
-    cursor: pointer;
-    
-    
-}
-
-
-.ri-delete-bin-fill, .ri-settings-5-fill{
-
-color:rgb(247, 253, 253)
-
-}  */
 
 
 
