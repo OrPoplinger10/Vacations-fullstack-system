@@ -2,15 +2,20 @@ import { useForm } from "react-hook-form";
 import "./Contact.css";
 import { useNavigate } from "react-router-dom";
 import notifyService from "../../../Services/NotifyService";
+import ContactModel from "../../../models/contact-model";
+import dataService from "../../../Services/DataService";
 
 function Contact(): JSX.Element {
-    const { handleSubmit } = useForm();
+
+    const { register, handleSubmit } = useForm<ContactModel>();
+    
     const navigate = useNavigate();
 
-    function sendContactDetails(): void {
+   async function sendContactDetails(contact: ContactModel) {
         try{
             
-            notifyService.success("Your contact details have been successfully received");
+           await dataService.addContacts(contact);
+            notifyService.success("Your request has been accepted, our representatives will contact you as soon as possible");
             navigate("/home");
 
         }
@@ -29,22 +34,22 @@ function Contact(): JSX.Element {
                 <form onSubmit={handleSubmit(sendContactDetails)} className="form-wrapper">
                     <div className="fullName">
                         <label className="label">FullName :</label>
-                        <input className="input" type="text" required minLength={3} maxLength={1000} />
+                        <input className="input" type="text" {...register("fullName")} required minLength={3} maxLength={1000} />
                         </div>
 
                         <div className="contactEmail">
                         <label className="label">Email :</label>
-                        <input className="input" type="email"  required />
+                        <input className="input" type="email" {...register("email")}  required />
                        </div>
 
                        <div className="phone">
                         <label className="label">Phone :</label>
-                        <input className="input" type="number" required min={1} max={12} />
+                        <input className="input" type="text" {...register("phone")} pattern="[0-9]{5,14}" required  />
                         </div>
 
                         <div className="message">
                         <label className="label">Message :</label>
-                        <textarea className="textArea" name="message" required />
+                        <textarea className="textArea" name="message" {...register("message")} required />
                         </div>
                         <button className ="contactBth">Send</button>
 

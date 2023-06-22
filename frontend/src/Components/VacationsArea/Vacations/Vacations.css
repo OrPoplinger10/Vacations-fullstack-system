@@ -34,11 +34,20 @@
     }
 }
 
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 327px) {
 	.mainTitle{
 
-        margin-left: 82px;
+        margin-left: 35px;
         display:flex;
+
+    }
+}
+
+@media only screen and (max-width: 281px) {
+	.mainTitle{
+
+        
+        margin-left: 75px;
 
     }
 }

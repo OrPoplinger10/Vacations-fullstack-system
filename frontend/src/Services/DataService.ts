@@ -4,6 +4,8 @@ import VacationModel from "../models/vacation-model";
 import { VacationsActionType, vacationsStore } from "../Redux/VacationsState";
 import OrderModel from "../models/order-model";
 import { OrdersActionType, ordersStore } from "../Redux/OrdersState";
+import ContactModel from "../models/contact-model";
+import { ContactsActionType, contactsStore } from "../Redux/ContactState";
 
 class DataService {
 
@@ -124,6 +126,20 @@ class DataService {
       // Add that order to the global state:
       ordersStore.dispatch({ type: OrdersActionType.AddOrder, payload: addedOrder });
          
+     }
+
+     // Add contact:
+     public async addContacts(contact: ContactModel): Promise<void> {
+
+     // send contact to server:
+     const response = await axios.post<ContactModel>(appConfig.contactsUrl, contact)
+
+     // Get the added contact:
+     const addedContact = response.data;
+
+     // Add that contact to the global state:
+     contactsStore.dispatch({ type: ContactsActionType.addContacts, payload: addedContact });
+
      }
 
 }

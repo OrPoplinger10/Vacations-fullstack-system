@@ -127,7 +127,7 @@ function VacationBookingPage(): JSX.Element {
 								<div className="col-md-6">
 									<div className="form-group">
 										<span className="form-label">Phone Number :</span>
-										<input className="form-control" type="text" {...register("phoneNumber")} required />
+										<input className="form-control" type="text" {...register("phoneNumber")} pattern="[0-9]{5,14}" required />
 									</div>
 								</div>
 							</div>
