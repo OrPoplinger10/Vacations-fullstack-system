@@ -24,7 +24,7 @@ class ContactModel {
     contactId: Joi.number().forbidden().positive().integer(),
     fullName: Joi.string().required().min(4).max(50),
     email: Joi.string().email().required(),
-    phone: Joi.number().required().positive().integer().min(7),
+    phone: Joi.string().regex(/^\d{5,14}$/).required(),
     message: Joi.string().required().min(7).max(1000),
     
 })

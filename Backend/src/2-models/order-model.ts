@@ -30,7 +30,7 @@ class OrderModel {
         adults: Joi.number().required().positive().integer().min(1).max(6),
         kids: Joi.number().required().integer(),
         roomsNumber: Joi.number().required().positive().integer().min(1).max(6),
-        phoneNumber: Joi.number().required().positive().integer().min(7)
+        phoneNumber: Joi.string().regex(/^\d{5,14}$/).required(),
     })
 
     public validateOrderPost(): void {
