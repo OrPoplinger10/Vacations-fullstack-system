@@ -40,7 +40,9 @@ function AdminVacationsArea(): JSX.Element {
 
     return (
         <div className="AdminVacations">
+          <div className="divMainTitleAdmin">
             <h1 className="mainTitleAdmin">Admin vacations</h1>
+            </div>
             
         <div className="addCsvGraph">
            <div className="add"> Add vacation : 

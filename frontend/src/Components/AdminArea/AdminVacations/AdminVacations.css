@@ -7,6 +7,12 @@
 	
 }
 
+.divMainTitleAdmin{
+
+    margin-bottom: 20px;
+
+}
+
 .ri-add-line {
 
     position: absolute;
@@ -50,7 +56,8 @@
     display: flex;
     position: relative;
     text-align: center;
-    margin-left: 160px;
+    margin-left: 145px;
+    margin-bottom: 3px;
     font-size: 20px;  
 }
 
@@ -69,6 +76,7 @@
         text-align: center;
         position: relative;
         margin-left: -5px;
+        margin-bottom: 12px;
         background-color: rgb(244, 248, 245);
         border-radius: 50px;
         padding: 15px;
@@ -144,6 +152,7 @@
      background-color: rgb(244, 248, 245);
      border-radius: 50px;
      margin-right: 5px;
+     margin-bottom: 12px;
      height: 140px;
      padding: 15px;
     

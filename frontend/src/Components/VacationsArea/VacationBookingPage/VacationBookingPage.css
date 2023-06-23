@@ -14,11 +14,6 @@
 	transform: translateY(-50%);
 }
 
-#booking {
-	
-	background: rgba(11, 12, 11, 0.33);
-}
-
 .description{
 
     overflow: scroll;

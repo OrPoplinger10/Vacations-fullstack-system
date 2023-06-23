@@ -50,7 +50,8 @@
     
 }
 
-.homePage:hover, .vacationPage:hover, .reports:hover, .contact:hover {
+.homePage:hover, .vacationPage:hover, .reports:hover, .contact:hover,
+.login:hover, .register:hover, .logout:hover{
 
     color: rgb(93, 169, 199);
 
@@ -97,11 +98,6 @@
 
 }
 
-.login:hover, .register:hover {
-
-    color: rgb(76, 94, 170);
-
-}
 
 #menu-icon{
 
@@ -158,7 +154,7 @@
         right: -100%;
         width: 270px;
         height: 22vh;
-        background: rgb(153, 239, 247); 
+        background: rgb(177, 235, 248); 
         display: flex;
         flex-direction: column;
         justify-content:flex-start;

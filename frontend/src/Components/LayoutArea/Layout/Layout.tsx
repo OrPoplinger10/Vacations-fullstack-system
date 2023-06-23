@@ -1,3 +1,4 @@
+import Copyrights from "../Copyrights/Copyrights";
 import Header from "../Header/Header";
 import Routing from "../Routing/Routing";
 
@@ -8,6 +9,8 @@ function Layout(): JSX.Element {
             <Header />
 
             <Routing />
+
+            <Copyrights />
             
         </div>
     );
