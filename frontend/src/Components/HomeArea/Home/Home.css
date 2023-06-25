@@ -52,6 +52,29 @@
 
 }
 
+@media only screen and (max-width: 1088px) {
+
+     .halfOfTitleHome {
+        line-height:80px;
+     }
+
+
+}
+
+@media only screen and (max-width:600px) {
+
+    .titleHome{
+
+        
+        background-image: linear-gradient(to top, #89f8c4, #04eea0);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+
+
+}
+
 
    
 
