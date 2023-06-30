@@ -38,6 +38,7 @@ function EditVacation(): JSX.Element {
       setValue("startDate", formattingDate (vacation?.startDate));
       setValue("endDate", formattingDate (vacation?.endDate));
       setValue("price", vacation?.price);
+      
     }
   }, [vacation, vacationId, setValue]);  
 
@@ -47,6 +48,8 @@ function EditVacation(): JSX.Element {
       await dataService.editVacation(vacation);
       notifyService.success("vacation has been updated !");
       navigate("/vacations");
+      console.log(vacation.imageUrl);
+      console.log(vacation.image);
 
     } catch (err: any) {
       notifyService.error(err);
@@ -144,6 +147,11 @@ function EditVacation(): JSX.Element {
 export default EditVacation;
 
 
+
+
+
+
+  
 
 
 

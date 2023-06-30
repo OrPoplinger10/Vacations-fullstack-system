@@ -85,7 +85,7 @@ class DataService {
          const headers = { "Content-Type": "multipart/form-data" }
 
         // Send vacation to server:
-        const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation.vacationId, vacation, {headers});
+        const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation.vacationId, vacation, { headers });
    
         // Get the updated vacation:
         const updatedVacation =  response.data;

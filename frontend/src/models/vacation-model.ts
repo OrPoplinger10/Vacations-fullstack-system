@@ -1,8 +1,5 @@
-class VacationModel{
-    map(arg0: (v: any) => JSX.Element): import("react").ReactNode {
-        throw new Error("Method not implemented.");
-    } 
-
+class VacationModel {
+  
   public vacationId: number;
   public vacationDestination: string;
   public vacationDescription: string;
@@ -15,8 +12,7 @@ class VacationModel{
   public imageUrl: string; // Image full url
   public isFollowing: number;
   public followersCount: number;
-    destination: any;
-    data: any;
+  
 }
 
 export default VacationModel

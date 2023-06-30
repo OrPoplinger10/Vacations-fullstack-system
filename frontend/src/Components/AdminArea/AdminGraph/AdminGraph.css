@@ -12,6 +12,17 @@
     
 }
 
+.divGraph{
+
+    position: relative;
+    height: 500px;
+
+  }
+
 h2{
     text-align: center;
+}
+
+@media (max-width: 1002px) {
+
 }

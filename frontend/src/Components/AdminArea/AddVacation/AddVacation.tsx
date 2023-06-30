@@ -4,21 +4,22 @@ import "./AddVacation.css";
 import notifyService from "../../../Services/NotifyService";
 import dataService from "../../../Services/DataService";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 function AddVacation(): JSX.Element {
 
     const { register, handleSubmit } = useForm<VacationModel>();
     
     const navigate = useNavigate();
+    
 
      async function send(vacation: VacationModel) {
         try{
-            vacation.image = (vacation.image as unknown as FileList)[0];
+            
+           vacation.image = (vacation.image as unknown as FileList)[0];
             await dataService.addVacation(vacation);
             notifyService.success("vacation has been added !");
             navigate("/vacations");
-
+            
         }
         catch(err:any) {
             notifyService.error(err);
@@ -62,9 +63,7 @@ function AddVacation(): JSX.Element {
                         <input className="inputImage" type="file" accept="image/*" {...register("image")} multiple required  />
                     </div>
                     <div>
-
                         <button className ="submit">Add</button>
-
                     </div>
                 </form>
         </div>
