@@ -133,7 +133,7 @@ async function addContact(contact: ContactModel): Promise <ContactModel> {
 }
 
 // Update vacation:
-async function updateVacations(vacation: VacationModel): Promise <vacationModel>{
+async function updateVacation(vacation: VacationModel): Promise <VacationModel>{
     
     //Validate:
     vacation.validatePut();
@@ -248,7 +248,7 @@ export default{
     addVacation,
     addOrder,
     addContact,
-    updateVacations,
+    updateVacation,
     deleteVacation,
     updateFollowers
 };

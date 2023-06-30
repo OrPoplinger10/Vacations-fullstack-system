@@ -74,7 +74,7 @@ router.put("/vacations/:vacationId([0-9]+)", verifyAdmin ,async(request: Request
         request.body.image = request.files?.image;
 
         const vacation = new VacationModel(request.body);
-        const updateVacation = await dataService.updateVacations(vacation);
+        const updateVacation = await dataService.updateVacation(vacation);
          response.json(updateVacation);
 
     }
