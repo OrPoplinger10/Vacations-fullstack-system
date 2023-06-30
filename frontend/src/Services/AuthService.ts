@@ -45,7 +45,7 @@ class AuthService {
 
     }
 
-     //  Verify LoggedIn 
+     //  Verify LoggedIn:
      public verifyLoggedIn(): boolean {
 
        // Get token from global state
@@ -58,7 +58,7 @@ class AuthService {
 
        return true;
     }
-     //  Verify LoggedIn 
+     //  Verify Admin:
      public isAdmin(): boolean {
 
      // Get token from global state

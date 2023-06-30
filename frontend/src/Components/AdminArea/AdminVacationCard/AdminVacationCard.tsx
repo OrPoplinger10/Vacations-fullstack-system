@@ -1,7 +1,6 @@
 import { Button, Card, CardContent, CardMedia, Chip, Icon, Typography } from "@mui/material";
 import "./AdminVacationCard.css";
 import VacationModel from "../../../models/vacation-model";
-import { NavLink } from "react-router-dom";
 import AdminLogicIcons from "../AdminLogicIcons/AdminLogicIcons";
 
 interface AdminVacationCardProps {

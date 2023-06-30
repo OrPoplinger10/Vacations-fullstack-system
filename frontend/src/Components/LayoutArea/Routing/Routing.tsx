@@ -47,19 +47,21 @@ function Routing(): JSX.Element {
 
     return (
 
-
+      
      <Routes>
+
+     {/* Default Route */}
      <Route path="/" 
         element={isLoggedIn ? ( 
-            isAdmin ? ( <Navigate to="/admin-vacations" replace />
-            ) : ( <Navigate to="/vacations" />)
+            isAdmin ? ( <Navigate to="/home" replace />
+            ) : ( <Navigate to="/home" />)
             ) : ( 
             <Home/>
         )
     }
     />
     
- {/* Auth Routes */}
+     {/* Auth Routes */}
     <Route path="/login" element={isLoggedIn ? (
          isAdmin ? ( <Navigate to="/admin-vacations" replace />
          ) : ( <Navigate to="/vacations" />) 
@@ -79,7 +81,7 @@ function Routing(): JSX.Element {
     />
 
     {/* User Routes */}
-    <Route
+       <Route
         path="/vacations"
         element={
           isLoggedIn ? (
@@ -94,8 +96,23 @@ function Routing(): JSX.Element {
         }
       />
 
-    {/* User Routes */}  
-      <Route
+       <Route
+        path="/vacations/booking-vacation/:vacationId"
+        element={
+          isLoggedIn ? (
+            isAdmin ? (
+              <Navigate to="/admin-vacations" replace />
+            ) : (
+              <VacationBookingPage />
+            )
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+       {/* Admin routes */}
+       <Route
         path="/admin-vacations"
         element={
           isLoggedIn && isAdmin ? (
@@ -105,26 +122,45 @@ function Routing(): JSX.Element {
           )
         }
       />
+
+        <Route
+        path="/admin-graph"
+        element={
+          isLoggedIn && isAdmin ? (
+            <AdminGraph />
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      
+       <Route
+        path="/vacations/add"
+        element={
+          isLoggedIn && isAdmin ? (
+            <AddVacation />
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+        
+        <Route
+        path="/vacations/edit/:vacationId"
+        element={
+          isLoggedIn && isAdmin ? (
+            <EditVacation />
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
       {/* Home Page: */}
      <Route path="/home" element={<Home/>}/>
 
-     {/* Add Vacation Page: */}
-     <Route path="/vacations/add" element={<AddVacation/>}/>
-
-     {/* Edit Vacation Page: */}
-     <Route path="/vacations/edit/:vacationId" element={<EditVacation/>}/>
-
-     {/* Vacation Booking Page */}
-     <Route path="/vacations/booking-vacation/:vacationId" element={<VacationBookingPage/>}/>
-
      {/* Contact Page: */}
      <Route path="/contact" element={<Contact/>}/>
-
-     {/* Admin Graph Page: */}
-     <Route path="/admin-graph" element={<AdminGraph/>}/>
-
-     {/* Default Route */}
-     <Route path="/" element={<Home/>}/>
 
      {/* Page not found */}
      <Route path="*" element={<PageNotFound/>}/>
