@@ -3,7 +3,7 @@ import socketIo, { Server as SocketIOServer, Socket } from "socket.io";
 
 let socketServer: SocketIOServer;
 
-function init(httpServer: http.Server):void{
+function init(httpServer: http.Server): void {
     
     // CORS for socket server:
     const option = { cors: {origin:"*"}};

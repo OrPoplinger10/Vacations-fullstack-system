@@ -19,7 +19,7 @@ router.get("/vacations",verifyLoggedIn, async(request: Request, response: Respon
         const user = cyber.getTokenAndReturnUser(token)
         const userId = user.userId;
         const vacations = await dataService.getAllVacations(userId); 
-         response.json(vacations) ;
+        response.json(vacations) ;
 
     }
     catch(err: any){
@@ -54,7 +54,7 @@ router.post("/vacations", verifyAdmin ,async(request: Request, response: Respons
 
         const vacation = new VacationModel(request.body);
         const addedVacation = await dataService.addVacation(vacation);
-         response.status(201).json(addedVacation);
+        response.status(201).json(addedVacation);
 
     }
     catch(err: any){
@@ -75,7 +75,7 @@ router.put("/vacations/:vacationId([0-9]+)", verifyAdmin ,async(request: Request
 
         const vacation = new VacationModel(request.body);
         const updateVacation = await dataService.updateVacation(vacation);
-         response.json(updateVacation);
+        response.json(updateVacation);
 
     }
     catch(err: any){
@@ -91,7 +91,7 @@ router.delete("/vacations/:vacationId([0-9]+)", verifyAdmin ,async(request: Requ
 
         const vacationId = +request.params.vacationId;
         await dataService.deleteVacation(vacationId);
-         response.sendStatus(204); 
+        response.sendStatus(204); 
 
     }
     catch(err: any){
@@ -108,7 +108,7 @@ router.post("/orders/:vacationId([0-9]+)", verifyLoggedIn ,async(request: Reques
         request.body.vacationId = +request.params.vacationId;
         const order = new OrderModel(request.body);
         const addedOrder = await dataService.addOrder(order);
-         response.status(201).json(addedOrder);
+        response.status(201).json(addedOrder);
 
     }
     catch(err: any){
@@ -124,7 +124,7 @@ router.post("/contacts" ,async(request: Request, response: Response, next: NextF
         
         const contact = new ContactModel(request.body);
         const addedContact = await dataService.addContact(contact);
-         response.status(201).json(addedContact);
+        response.status(201).json(addedContact);
 
     }
     catch(err: any){

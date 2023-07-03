@@ -64,7 +64,7 @@ async function login(credentials: CredentialsModel): Promise<string> {
    // Validation
    credentials.validatePostLogin();
 
-//    Hash password:
+   // Hash password:
    credentials.password = cyber.hashPassword(credentials.password);
 
    // Create query
