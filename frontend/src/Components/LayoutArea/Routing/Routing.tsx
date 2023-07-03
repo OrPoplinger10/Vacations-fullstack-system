@@ -18,7 +18,8 @@ import VacationBookingPage from "../../VacationsArea/VacationBookingPage/Vacatio
 
 
 function Routing(): JSX.Element {
-    // Token state -> hold user token on site load
+  
+  // Token state -> hold user token on site load
   const [token, setToken] = useState<string>("");
 
   // Is Logged in state -> to hold if user is logged in

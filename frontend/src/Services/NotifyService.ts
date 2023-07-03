@@ -16,7 +16,7 @@ public error(err: any) :void{
 
     const message = this.extractErrorMessage(err);
    
-   this.notyf.error(message)
+    this.notyf.error(message)
 
    
 

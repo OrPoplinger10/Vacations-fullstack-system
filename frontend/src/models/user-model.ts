@@ -1,4 +1,4 @@
-import RoleModel from "./role-model";
+import RoleModel from "./Role-model";
 
 class UserModel {
 

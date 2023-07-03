@@ -4,7 +4,7 @@ import Layout from './Components/LayoutArea/Layout/Layout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import interceptorService from './Services/InterceptorService';
-import startSocketListener from './Services/socketIoService';
+import startSocketListener from './Services/SocketIoService';
 
 // Create interceptors:
 interceptorService.create();

@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import "./Register.css";
-import UserModel from "../../../models/user-model";
+import UserModel from "../../../Models/User-model";
 import authService from "../../../Services/AuthService";
 import { useNavigate } from "react-router-dom";
 import notifyService from "../../../Services/NotifyService";

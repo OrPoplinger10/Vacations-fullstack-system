@@ -1,5 +1,5 @@
 import jwtDecode from "jwt-decode";
-import UserModel from "../models/user-model";
+import UserModel from "../Models/User-model";
 import { createStore } from "redux";
 
 

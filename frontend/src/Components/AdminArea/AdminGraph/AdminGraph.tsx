@@ -30,15 +30,13 @@ function Graph(): JSX.Element {
   }, [vacationsStore.getState().vacations]);
 
     return (
-        <div className="graphBox">
-            
-            <h2>Followers statistics</h2>
-      <br />
-      <div className="divGraph">
-      <canvas ref={chartRef} className="Graph"></canvas>
-      </div>
-			
-        </div>
+       <div className="graphBox">    
+       <h2>Followers statistics</h2>
+       <br />
+       <div className="divGraph">
+       <canvas ref={chartRef} className="Graph"></canvas>
+       </div>
+       </div>
     );
 }
 

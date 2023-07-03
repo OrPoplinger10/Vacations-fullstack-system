@@ -1,9 +1,9 @@
 import axios from "axios";
-import UserModel from "../models/user-model";
+import UserModel from "../Models/User-model";
 import appConfig from "../Utils/AppConfig";
 import { AuthActionType, authStore } from "../Redux/AuthState";
-import CredentialsModel from "../models/credentials-model";
-import RoleModel from "../models/role-model";
+import CredentialsModel from "../Models/Credentials-model";
+import RoleModel from "../Models/Role-model";
 import jwtDecode from "jwt-decode";
 
 class AuthService {

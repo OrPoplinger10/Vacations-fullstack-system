@@ -1,13 +1,9 @@
 import { ResourceNotFoundError } from "../2-models/client-errors";
-import vacationModel from "../2-models/vacation-model";
 import VacationModel from "../2-models/vacation-model";
 import appConfig from "../4-utils/app-config";
 import dal from "../4-utils/dal";
 import { OkPacket } from "mysql";
 import imageHandler from "../4-utils/image-handler";
-import socketIoService from "./socketIoService";
-import OrderModel from "../2-models/order-model";
-import ContactModel from "../2-models/contact-model";
 
 // Get all vacations from database:
 async function getAllVacations(userId: number): Promise <VacationModel[]> { //userId: number
@@ -88,49 +84,6 @@ async function addVacation(vacation: VacationModel): Promise <VacationModel>{
     return vacation;
 
 };
-
-// Add vacation:
-async function addOrder(order: OrderModel): Promise <OrderModel>{
-
-    //Validate:
-    order.validateOrderPost();
-
-    // Create query:
-    const sql = `INSERT INTO orders VALUES(DEFAULT, ?, ?, ?, ?, ?, ?)`;
-     
-    // Execute:
-    const result: OkPacket = await dal.execute(sql,
-    [order.vacationId, order.fullName, order.adults,
-   order.kids, order.roomsNumber,order.phoneNumber]);
-
-    // Set back the created id:
-   order.orderId = result.insertId;
-       
-    // return vacation
-    return order;
-
-};
-
-// Add order
-async function addContact(contact: ContactModel): Promise <ContactModel> {
-
-    // Validate:
-    contact.validateContactPost();
-
-    // Create query:
-    const sql =`INSERT INTO contacts VALUES(DEFAULT, ?, ?, ?, ?)`;
-
-    // Execute:
-    const result: OkPacket =await dal.execute(sql,[
-    contact.fullName, contact.email, contact.phone, contact.message]);
-
-    // Set back the created id:
-    contact.contactId = result.insertId;
-
-    // return contact
-    return contact
-
-}
 
 // Update vacation:
 async function updateVacation(vacation: VacationModel): Promise <VacationModel>{
@@ -220,37 +173,13 @@ async function getVacationImageName(vacationId: number): Promise<string> {
 
 }
 
-
-async function updateFollowers(userId:number, vacationId: number, action: number): Promise<void>{
-    
-    // Will add data only if cross exists in database
-    const followQuery = `INSERT INTO followers (userId, vacationId) SELECT ?, ? 
-    WHERE NOT EXISTS (SELECT 1 FROM followers WHERE userId = ? AND vacationId = ?)`;
-    
-    const unFollowQuery = "DELETE FROM followers WHERE userId=? AND vacationId=?";
-    
-    const sql = action === 1 ? followQuery : unFollowQuery;
-    
-    const response:OkPacket = await dal.execute(sql, [userId, vacationId, userId, vacationId]);
-
-    // If a user follows a vacation send to follow it again
-    if(response.affectedRows !== 0){
-        const socketServer = socketIoService.getSocketServer();
-        socketServer.sockets.emit('update', {vacationId, userId, isFollowing: action}); 
-    }
-    
-
-}
-
 export default{
     getAllVacations,
     getOneVacation,
     addVacation,
-    addOrder,
-    addContact,
     updateVacation,
     deleteVacation,
-    updateFollowers
+    
 };
 
 

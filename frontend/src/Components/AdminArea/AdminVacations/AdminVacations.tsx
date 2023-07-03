@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
-import VacationModel from "../../../models/vacation-model";
+import VacationModel from "../../../Models/Vacation-model";
 import "./AdminVacations.css";
-import dataService from "../../../Services/DataService";
+import vacationService from "../../../Services/VacationsService";
 import notifyService from "../../../Services/NotifyService";
 import AdminVacationCard from "../AdminVacationCard/AdminVacationCard";
 import { NavLink } from "react-router-dom";
 import Pagination from "../../UserArea/Pagination/Pagination";
 import Csv from "../../../Services/CsvService";
 
+
 function AdminVacationsArea(): JSX.Element {
  const [vacations, setVacations] = useState<VacationModel[]>([]);
  const[currentPage, setCurrentPage] = useState(1);
- const[postsPerPage, setPostsPerPage] = useState(8);
+ const[postsPerPage] = useState(8);
 
     useEffect(()=> {
-     dataService.getAllVacations()
+     vacationService.getAllVacations()
      .then(dbVacations => setVacations(dbVacations))
      .catch(err => notifyService.error(err));
     }, [])
@@ -37,7 +38,6 @@ function AdminVacationsArea(): JSX.Element {
         document.body.removeChild(csvLink);
       }
     
-
     return (
         <div className="AdminVacations">
           <div className="divMainTitleAdmin">
@@ -55,8 +55,7 @@ function AdminVacationsArea(): JSX.Element {
            <NavLink to="/admin-graph"><i className="ri-bar-chart-2-fill"></i></NavLink>
            </div>
            </div>
-           
-            
+             
          {currentPosts.map(v => <AdminVacationCard key={v.vacationId} vacation={v} /> )}  
 
          <Pagination

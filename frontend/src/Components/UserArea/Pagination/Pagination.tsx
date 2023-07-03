@@ -11,7 +11,7 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }: {
         <div className="Pagination">
             {pages.map((page, index) => {
                 return<button key={index} onClick={() => setCurrentPage(page)} className=
-                {page == currentPage ? 'active' : ''}>
+                {page === currentPage ? 'active' : ''}>
                     {page}
                 </button>
             })}
@@ -19,10 +19,7 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }: {
             </div>
     )
 
-           
-
         }
-
 
 export default Pagination;
 

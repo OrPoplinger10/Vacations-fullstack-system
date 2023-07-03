@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import VacationModel from "../models/vacation-model";
+import VacationModel from "../Models/Vacation-model";
 import { authStore } from "./AuthState";
 
 // Vacation State - the application level state regarding vacations:

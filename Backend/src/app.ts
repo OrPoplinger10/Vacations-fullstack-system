@@ -1,12 +1,16 @@
 import express from "express";
 import expressFileUpload from "express-fileupload"
 import cors from "cors";
-import dataRoutes from "./6-routes/data-routes";
+import vacationsRoutes from "./6-routes/vacations-routes";
 import routeNotFound from "./3-middleware/route-not-found";
 import catchAll from "./3-middleware/catch-all";
 import appConfig from "./4-utils/app-config";
 import authRoute from "./6-routes/auth-routes"
 import socketIoService from "./5-service/socketIoService";
+import ordersRoutes from "./6-routes/orders-routes";
+import contactsRoutes from "./6-routes/contacts-routes";
+import followersRoutes from "./6-routes/followers-routes";
+
 
 // Create server
 const server = express();
@@ -21,7 +25,10 @@ server.use(express.json());
 server.use(expressFileUpload());
 
 // Route requests:
-server.use("/api", dataRoutes);
+server.use("/api", vacationsRoutes);
+server.use("/api", ordersRoutes);
+server.use("/api", contactsRoutes);
+server.use("/api", followersRoutes);
 server.use("/api", authRoute);
 
 // Handle route not found:

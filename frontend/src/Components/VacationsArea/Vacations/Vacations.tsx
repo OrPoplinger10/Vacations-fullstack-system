@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import "./Vacations.css";
-import VacationModel from "../../../models/vacation-model";
-import dataService from "../../../Services/DataService";
+import VacationModel from "../../../Models/Vacation-model";
+import vacationService from "../../../Services/VacationsService";
 import notifyService from "../../../Services/NotifyService";
 import VacationCard from "../VacationCard/VacationCard";
 import Pagination from "../../UserArea/Pagination/Pagination";
 import { vacationsStore } from "../../../Redux/VacationsState";
 import { Checkbox, FormControlLabel } from "@mui/material";
-import Filters from "../../../models/filters-model";
+import Filters from "../../../Models/Filters-model";
+
 
 
 function Vacations(): JSX.Element {
 
     const [vacations, setVacations] = useState<VacationModel[]>([]);
     const[currentPage, setCurrentPage] = useState(1);
-    const[postsPerPage, setPostsPerPage] = useState(8);
+    const[postsPerPage] = useState(8);
     const [activeFilters, setActiveFilters] = useState([]); 
 
     useEffect(()=> {
-     dataService.getAllVacations()
+     vacationService.getAllVacations()
      .then(dbVacations => setVacations(dbVacations))
      .catch(err => notifyService.error(err));
     }, [])
@@ -34,13 +35,13 @@ function Vacations(): JSX.Element {
         
         // Filter object :
         const filterOptions = {
-            isFollowing: (v: VacationModel) => v.isFollowing ===1,
+            isFollowing: (v: VacationModel) => v.isFollowing === 1,
             actualVacations: (v: VacationModel) => new Date(v.startDate) > now,
             startedVacations: (v: VacationModel) => (new Date(v.startDate) < now) && (new Date(v.endDate) > now),
         };
         
        
-        const selectingFilters = (v:VacationModel) => {  
+        const selectingFilters = (v: VacationModel) => {  
             return activeFilters.every((filter) => filterOptions[filter as keyof typeof filterOptions](v));
         };
         
@@ -65,7 +66,7 @@ function Vacations(): JSX.Element {
     return (
         <div className="Vacations">
             <div className="mainTitle">
-            <h1 className="mainTitleUser" >Our vacations</h1>
+            <h1 className="mainTitleUser">Our vacations</h1>
             </div>
 
             <div className="filterMenu">
@@ -78,9 +79,9 @@ function Vacations(): JSX.Element {
 
         <Pagination
          totalPosts={vacations.length}
-        postsPerPage={postsPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
+         postsPerPage={postsPerPage}
+         setCurrentPage={setCurrentPage}
+         currentPage={currentPage}
         />
         </div>
     );

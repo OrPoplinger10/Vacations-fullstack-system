@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
-import VacationModel from "../../../models/vacation-model";
+import VacationModel from "../../../Models/Vacation-model";
 import "./AddVacation.css";
 import notifyService from "../../../Services/NotifyService";
-import dataService from "../../../Services/DataService";
+import vacationService from "../../../Services/VacationsService";
 import { useNavigate } from "react-router-dom";
+
 
 function AddVacation(): JSX.Element {
 
@@ -11,12 +12,11 @@ function AddVacation(): JSX.Element {
     
     const navigate = useNavigate();
     
-
      async function send(vacation: VacationModel) {
         try{
             
            vacation.image = (vacation.image as unknown as FileList)[0];
-            await dataService.addVacation(vacation);
+            await vacationService.addVacation(vacation);
             notifyService.success("vacation has been added !");
             navigate("/vacations");
             

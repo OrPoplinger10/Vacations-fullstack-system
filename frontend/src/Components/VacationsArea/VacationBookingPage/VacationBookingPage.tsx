@@ -1,11 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "./VacationBookingPage.css";
 import { useEffect, useState } from "react";
-import VacationModel from "../../../models/vacation-model";
-import dataService from "../../../Services/DataService";
+import VacationModel from "../../../Models/Vacation-model";
+import vacationService from "../../../Services/VacationsService";
+import ordersService from "../../../Services/OrdersService";
 import notifyService from "../../../Services/NotifyService";
 import { useForm } from "react-hook-form";
-import OrderModel from "../../../models/order-model";
+import OrderModel from "../../../Models/Order-model";
+
+
 
 function VacationBookingPage(): JSX.Element {
     const params = useParams();
@@ -18,7 +21,7 @@ function VacationBookingPage(): JSX.Element {
 
       const vacationId = +params.vacationId;
   
-      dataService
+      vacationService
         .getOneVacation(vacationId)
         .then(responseOneVacation => {
           const vacationData = Array.isArray(responseOneVacation)
@@ -39,7 +42,7 @@ function VacationBookingPage(): JSX.Element {
 
 	async function sendOrderToDb(order: OrderModel) {
         try{
-            await dataService.addOrder(order);
+            await ordersService.addOrder(order);
             notifyService.success("Your order has been recorded in our information systems, our representatives will contact you later to make a secure payment");
             navigate("/vacations");
 

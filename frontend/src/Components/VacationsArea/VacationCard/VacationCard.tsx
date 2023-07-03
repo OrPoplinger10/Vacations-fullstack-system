@@ -1,13 +1,14 @@
-import VacationModel from "../../../models/vacation-model";
+import VacationModel from "../../../Models/Vacation-model";
 import "./VacationCard.css";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import {  Button, Card, CardContent, CardMedia, Fab, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { vacationsStore } from "../../../Redux/VacationsState";
-import dataService from "../../../Services/DataService";
+import followersService from "../../../Services/FollowersService";
 import notifyService from "../../../Services/NotifyService";
 import { authStore } from "../../../Redux/AuthState";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 interface VacationCardProps {
     vacation: VacationModel;	
@@ -28,7 +29,6 @@ useEffect(()=>{
         
   const unsubscribe = vacationsStore.subscribe(()=>{
       
-     
       const action = vacationsStore.getState().lastAction;
           
       // If it was like, render component
@@ -58,7 +58,7 @@ async function handleLike(vacationId: number){
       
       const newFollowState = currentFollowState === 1 ? 0 : 1;
 
-      await dataService.updateFollow(vacationId, newFollowState);
+      await followersService.updateFollow(vacationId, newFollowState);
               
   }catch(e:any){
       notifyService.error(e);
@@ -101,13 +101,13 @@ const navigate = useNavigate();
   }
     return (
       
-      <div className="VacationCard">
+     <div className="VacationCard">
 
-      {user.roleId === 2 && <div className="likesBar">       
-     <Fab variant="extended"
-    style={{color: isFollowing ===1 ? "red": "#da9c9cc9"}} onClick={() => handleLike(vacation.vacationId)}>
-    <FavoriteIcon className="navigateLike" sx={{ mr: 1 }} />
-     {followersCount}
+       {user.roleId === 2 && <div className="likesBar">       
+       <Fab variant="extended"
+       style={{color: isFollowing === 1 ? "red": "#da9c9cc9"}} onClick={() => handleLike(vacation.vacationId)}>
+       <FavoriteIcon className="navigateLike" sx={{ mr: 1 }} />
+       {followersCount}
    </Fab>
    </div>}
 

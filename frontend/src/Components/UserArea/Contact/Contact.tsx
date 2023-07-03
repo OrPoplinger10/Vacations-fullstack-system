@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import "./Contact.css";
 import { useNavigate } from "react-router-dom";
+import contactsService from "../../../Services/ContactsService";
 import notifyService from "../../../Services/NotifyService";
-import ContactModel from "../../../models/contact-model";
-import dataService from "../../../Services/DataService";
+import ContactModel from "../../../Models/Contact-model";
+
+
 
 function Contact(): JSX.Element {
 
@@ -14,8 +16,8 @@ function Contact(): JSX.Element {
    async function sendContactDetails(contact: ContactModel) {
         try{
             
-           await dataService.addContacts(contact);
-            notifyService.success("Your request has been accepted, our representatives will contact you as soon as possible");
+           await contactsService.addContacts(contact);
+            notifyService.success("Your request has been accepted, our representatives will contact you as soon as possible.");
             navigate("/home");
 
         }

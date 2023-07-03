@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import "./EditVacation.css";
 import { useNavigate, useParams } from "react-router-dom";
-import dataService from "../../../Services/DataService";
+import vacationService from "../../../Services/VacationsService";
 import notifyService from "../../../Services/NotifyService";
-import VacationModel from "../../../models/vacation-model";
+import VacationModel from "../../../Models/Vacation-model";
 import { useEffect, useState } from "react";
+
 
 function EditVacation(): JSX.Element {
   const { register, handleSubmit, setValue } = useForm<VacationModel>({ });  
@@ -25,7 +26,7 @@ function EditVacation(): JSX.Element {
   // Get vacation to edit:
   useEffect(() => {
     if (!vacation) {
-      dataService
+      vacationService
         .getOneVacation(vacationId)
         .then((responseVacation) => {
           setVacation(responseVacation);
@@ -45,11 +46,9 @@ function EditVacation(): JSX.Element {
   async function send(vacation: VacationModel) {
     try {
       vacation.image = (vacation.image as unknown as FileList)[0];
-      await dataService.editVacation(vacation);
+      await vacationService.editVacation(vacation);
       notifyService.success("vacation has been updated !");
       navigate("/vacations");
-      console.log(vacation.imageUrl);
-      console.log(vacation.image);
 
     } catch (err: any) {
       notifyService.error(err);

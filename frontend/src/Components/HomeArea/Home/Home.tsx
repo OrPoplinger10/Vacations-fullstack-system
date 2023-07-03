@@ -22,8 +22,7 @@ function Home(): JSX.Element {
          <button className="bthHome">
          <NavLink to="/contact"> Contact Us</NavLink>
          </button>
-
-            
+         
         </div>
     );
 }

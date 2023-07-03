@@ -1,7 +1,8 @@
-import { NavLink, Navigate, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./AdminLogicIcons.css";
-import dataService from "../../../Services/DataService";
+import vacationService from "../../../Services/VacationsService";
 import notifyService from "../../../Services/NotifyService";
+
 
 interface AdminLogicIconsProps{
     vacationId: number;
@@ -19,7 +20,7 @@ function AdminLogicIcons(props:AdminLogicIconsProps): JSX.Element {
             const ok = window.confirm("Are you sure?");
             if(!ok) return;
 
-            await dataService.deleteVacation(vacationId);
+            await vacationService.deleteVacation(vacationId);
             notifyService.success("vacation has been deleted")
             navigate("/vacations")
 
@@ -31,17 +32,15 @@ function AdminLogicIcons(props:AdminLogicIconsProps): JSX.Element {
     }
     
     return (
-        <div className="AdminLogicIcons">
-
-<div className="editAndDelete">
-          <div className="delete">
-          <NavLink to="#" onClick={deleteVacation}><i className="ri-delete-bin-fill"></i></NavLink>
-          </div>
-          <div className="edit">
-          <NavLink to={"/vacations/edit/" + vacationId}><i className="ri-settings-5-fill"></i></NavLink> 
+     <div className="AdminLogicIcons">
+       <div className="editAndDelete">
+         <div className="delete">
+         <NavLink to="#" onClick={deleteVacation}><i className="ri-delete-bin-fill"></i></NavLink>
          </div>
-          </div>
-        
+         <div className="edit">
+         <NavLink to={"/vacations/edit/" + vacationId}><i className="ri-settings-5-fill"></i></NavLink> 
+     </div>
+      </div>
         </div>
     );
 }

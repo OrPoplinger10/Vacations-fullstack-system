@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import OrderModel from "../models/order-model";
+import OrderModel from "../Models/Order-model";
 
 // Order State - the application level state regarding orders:
 export class orderState {

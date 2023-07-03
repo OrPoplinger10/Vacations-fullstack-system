@@ -1,6 +1,6 @@
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-import CredentialsModel from "../../../models/credentials-model";
+import CredentialsModel from "../../../Models/Credentials-model";
 import authService from "../../../Services/AuthService";
 import notifyService from "../../../Services/NotifyService";
 import { useForm } from "react-hook-form";

@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import ContactModel from "../models/contact-model";
+import ContactModel from "../Models/Contact-model";
 
 // Contact State - the application level state regarding contacts:
 export class contactState {

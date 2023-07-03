@@ -1,6 +1,6 @@
 import { NavLink} from "react-router-dom";
 import "./Header.css";
-import UserModel from "../../../models/user-model";
+import UserModel from "../../../Models/User-model";
 import { useEffect, useState } from "react";
 import { authStore } from "../../../Redux/AuthState";
 import authService from "../../../Services/AuthService";

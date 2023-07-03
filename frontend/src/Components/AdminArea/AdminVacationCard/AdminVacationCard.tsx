@@ -1,6 +1,6 @@
-import { Button, Card, CardContent, CardMedia, Chip, Icon, Typography } from "@mui/material";
+import { Button, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import "./AdminVacationCard.css";
-import VacationModel from "../../../models/vacation-model";
+import VacationModel from "../../../Models/Vacation-model";
 import AdminLogicIcons from "../AdminLogicIcons/AdminLogicIcons";
 
 interface AdminVacationCardProps {
@@ -45,8 +45,7 @@ function AdminVacationCard(props: AdminVacationCardProps): JSX.Element {
        </CardContent>
     
        </Card>
-			
-			
+       
         </div>
     );
 }

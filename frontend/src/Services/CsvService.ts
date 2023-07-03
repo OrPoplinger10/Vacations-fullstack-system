@@ -1,4 +1,4 @@
-import VacationModel from "../models/vacation-model";
+import VacationModel from "../Models/Vacation-model";
 
 
 function Csv(vacations: VacationModel[]) {
