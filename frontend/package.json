@@ -21,7 +21,7 @@
     "notyf": "^3.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.43.2",
+    "react-hook-form": "^7.45.1",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",

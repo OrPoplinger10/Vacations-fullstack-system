@@ -14,6 +14,18 @@ function AddVacation(): JSX.Element {
     
      async function send(vacation: VacationModel) {
         try{
+          const { startDate, endDate } = vacation;
+
+          // Convert the date strings to Date objects
+          const startDateObj = new Date(startDate);
+          const endDateObj = new Date(endDate);
+
+          // Compare the start and end dates
+          if (startDateObj > endDateObj) {
+          // Start date is after the end date, show an error message
+          notifyService.error("End date must be after the start date");
+          return;
+      }
             
            vacation.image = (vacation.image as unknown as FileList)[0];
             await vacationService.addVacation(vacation);

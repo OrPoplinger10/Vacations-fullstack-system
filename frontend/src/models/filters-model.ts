@@ -1,7 +1,7 @@
 enum Filters {
-    IS_FOLLOWING = 'isFollowing',
-    ACTUAL_VACATIONS = 'actualVacations',
-    STARTED_VACATIONS = 'startedVacations',
+    Is_following = 'isFollowing',
+    Actual_vacations = 'actualVacations',
+    Started_vacations = 'startedVacations',
 }
 
 export default Filters;

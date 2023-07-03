@@ -48,7 +48,7 @@ function Vacations(): JSX.Element {
   }
 
   useEffect(() => {
-
+    
     // Update the useEffect hook to set the filteredVacations state using the filterVacations function and reset the current page to 1 when filters are changed.
     setFilteredVacations(filterVacations());
     setCurrentPage(1); // Reset the current page to 1 when filters are changed
@@ -81,21 +81,21 @@ function Vacations(): JSX.Element {
         <FormControlLabel
           control={<Checkbox />}
           onChange={(event) =>
-            handleFilterChange(Filters.IS_FOLLOWING, (event.target as HTMLInputElement).checked)
+            handleFilterChange(Filters.Is_following, (event.target as HTMLInputElement).checked)
           }
           label="Favorites"
         />
         <FormControlLabel
           control={<Checkbox />}
           onChange={(event) =>
-            handleFilterChange(Filters.ACTUAL_VACATIONS, (event.target as HTMLInputElement).checked)
+            handleFilterChange(Filters.Actual_vacations, (event.target as HTMLInputElement).checked)
           }
           label="Actual"
         />
         <FormControlLabel
           control={<Checkbox />}
           onChange={(event) =>
-            handleFilterChange(Filters.STARTED_VACATIONS, (event.target as HTMLInputElement).checked)
+            handleFilterChange(Filters.Started_vacations, (event.target as HTMLInputElement).checked)
           }
           label="Started"
         />

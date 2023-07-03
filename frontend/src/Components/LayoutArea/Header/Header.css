@@ -194,6 +194,19 @@
     }
 }
 
+@media (max-width: 391px) {
+
+    .register{
+        margin-left: -10px;
+        margin-right: 14px;
+    }
+
+    #menu-icon {
+       margin-right: 15px;
+
+    }
+}
+
 
 
 
