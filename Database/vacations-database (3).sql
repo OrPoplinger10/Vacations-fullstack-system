@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 06:38 PM
+-- Generation Time: Jul 05, 2023 at 03:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,7 +42,7 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`contactId`, `fullName`, `email`, `phone`, `message`) VALUES
-(1, 'maya lev', 'maya852@gmail.com', '0544646985', 'Hello please contact me guys');
+(4, 'Or Poplinger', 'orpoplinger14@gmail.com', '0543557687', 'Hi please contact me!!');
 
 -- --------------------------------------------------------
 
@@ -60,18 +60,19 @@ CREATE TABLE `followers` (
 --
 
 INSERT INTO `followers` (`userId`, `vacationId`) VALUES
-(16, 8),
-(16, 1),
-(18, 8),
-(18, 5),
-(13, 13),
-(19, 52),
 (13, 14),
-(13, 62),
+(13, 7),
+(13, 50),
 (13, 5),
+(13, 62),
 (13, 2),
+(13, 10),
+(13, 8),
 (13, 1),
-(13, 15);
+(24, 1),
+(24, 49),
+(24, 47),
+(24, 14);
 
 -- --------------------------------------------------------
 
@@ -95,8 +96,7 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`orderId`, `vactionId`, `fullName`, `adults`, `kids`, `roomsNumber`, `phoneNumber`) VALUES
 (4, 1, 'David Levi', 2, 2, 2, '0504464602'),
-(9, 1, 'Bart Levy', 3, 4, 2, '0546460955'),
-(21, 10, 'Bart Levy', 3, 3, 3, '0546460955');
+(22, 14, 'Bart Ofir Cohen', 3, 2, 2, '0546460999');
 
 -- --------------------------------------------------------
 
@@ -137,12 +137,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `firstName`, `lastName`, `email`, `password`, `roleId`) VALUES
-(10, 'Almog', 'Cohen', 'almogcohen19@gmail.com', '85a1fb19955665092600e60669524097f8e4d220a2b0fbbf5a80f1393b701f3c4e36bc5eb1954166639c504552113d2afb6175571a5d4a00bd1dc91537b71982', 2),
 (12, 'or', 'poplinger', 'orpoplinger777@gmail.com', '3053fc25962c741fa130e230d6e43090666fba1821b5590797b262a81f83093e9e0eac806f5c4f8f5d6e06b7eb8353408540c39203feb3096ea29db0b2adec99', 1),
 (13, 'Bart ', 'Simps', 'bart@gmail.com', '3053fc25962c741fa130e230d6e43090666fba1821b5590797b262a81f83093e9e0eac806f5c4f8f5d6e06b7eb8353408540c39203feb3096ea29db0b2adec99', 2),
-(16, 'Meir', 'Levy', 'levi2@gmail.com', '3ce883e0ffcf6b9f5339278910f57defe0ffdff8b5596a58a6f8753aec2431249299b541c8b1c1ea077df592d8de0f9aff98eed01f9f2d9cdbc2c3b6e2506b90', 2),
-(18, 'Yuval', 'Lev', 'YuvalLev@gmail.com', '3ce883e0ffcf6b9f5339278910f57defe0ffdff8b5596a58a6f8753aec2431249299b541c8b1c1ea077df592d8de0f9aff98eed01f9f2d9cdbc2c3b6e2506b90', 2),
-(19, 'Carmit', 'Sivan', 'carmit54@gmail.com', '3ce883e0ffcf6b9f5339278910f57defe0ffdff8b5596a58a6f8753aec2431249299b541c8b1c1ea077df592d8de0f9aff98eed01f9f2d9cdbc2c3b6e2506b90', 2);
+(24, 'Meir ', 'Natan', 'Meir47@gmail.com', 'ed962e57a58c9ba428bf7aadfb5c2c9817894f639795497a27305e9f0b2fad84c7777c42e9f2a498b78e9b07e3e5458fd0e0e8399d794b59e415ae3ab6a795c1', 2);
 
 -- --------------------------------------------------------
 
@@ -185,7 +182,7 @@ INSERT INTO `vacations` (`vacationId`, `vacationDestination`, `vacationDescripti
 (50, 'Valmorel', 'Experience the heart of Savoie\r\nHidden behind a curtain of spruce trees at 1,460 metres, Club Med Valmorel is inspired by Beaufortain mansions, with colourful facades and stone roofs. Watch the kids sled in the snow garden, race down the Grand Domaine slopes or snowshoe across the Aigueblanche valley. In the evening, play with the kids in the indoor pool then delight your taste buds with a variety of gourmet savoyard dishes.For a truly luxurious escape, book one of the elegant suites in our 5Ψ Exclusive Collection space, Le Lodge, complete with a dedicated ski room, room service breakfasts and champagne from 6pm.', '2023-08-31 00:00:00', '2023-09-05 00:00:00', 2204.00, 'f251a51b-3735-43c7-8a27-056c05cc6efd.jpg'),
 (52, 'Santorini', '\r\nSuch a pleasant stay- It exceeded our expectations! Beautiful villa with amazing views. Our room was so clean and the breakfast food was delicious. Loved that there were marked trails to walk from one city to the next. We will be back again one day.', '2023-07-27 00:00:00', '2023-08-04 00:00:00', 3144.00, 'b3eae68f-d97c-47a4-a428-6b2d43a7d021.jpg'),
 (53, 'Milan - Bianca Relais', 'Beautiful area with a great view! The room had great amenities! We really enjoyed our stay!\r\n\r\n\r\n\r\n\r\n', '2023-08-18 00:00:00', '2023-08-24 00:00:00', 4513.00, '491409bd-6204-4986-bd4c-d0bf2ae1b52b.jpg'),
-(62, 'France - Arcs Extrême', 'For exhilarating winter sports and amazing après ski, Club Med Arcs Extrême is the place to be. This adults-only resort sits at 2,000 metres in the spectacular Savoie region, with ski-in ski-out access to Les Arcs. With 200 km of runs and snow sports galore, from skiing and snowboarding to skating, this all-inclusive ski resort lives up to its reputation for intensely sporty ski breaks. Off the slopes, the party’s only just begun', '2023-06-01 00:00:00', '2023-06-07 00:00:00', 2651.00, '27e3bd0a-20d5-49c7-929a-4a3dc4458859.jpg');
+(62, 'France - Arcs Extrême', 'For exhilarating winter sports and amazing après ski, Club Med Arcs Extrême is the place to be. This adults-only resort sits at 2,000 metres in the spectacular Savoie region, with ski-in ski-out access to Les Arcs. With 200 km of runs and snow sports galore, from skiing and snowboarding to skating, this all-inclusive ski resort lives up to its reputation for intensely sporty ski breaks. Off the slopes, the party’s only just begun', '2023-06-29 00:00:00', '2023-07-05 00:00:00', 2700.00, '27e3bd0a-20d5-49c7-929a-4a3dc4458859.jpg');
 
 --
 -- Indexes for dumped tables
@@ -238,13 +235,13 @@ ALTER TABLE `vacations`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `contactId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `contactId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -256,13 +253,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `vacations`
 --
 ALTER TABLE `vacations`
-  MODIFY `vacationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `vacationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- Constraints for dumped tables
@@ -273,7 +270,7 @@ ALTER TABLE `vacations`
 --
 ALTER TABLE `followers`
   ADD CONSTRAINT `followers_ibfk_1` FOREIGN KEY (`vacationId`) REFERENCES `vacations` (`vacationId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `followers_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`);
+  ADD CONSTRAINT `followers_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders`
