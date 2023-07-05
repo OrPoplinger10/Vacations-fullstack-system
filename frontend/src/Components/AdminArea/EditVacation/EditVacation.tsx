@@ -62,10 +62,7 @@ function EditVacation(): JSX.Element {
        await vacationService.editVacation(vacation);
        notifyService.success("vacation has been updated !");
        navigate("/vacations");
-       console.log(vacation.image);
-       console.log(vacation.imageUrl);
-
-
+     
     } catch (err: any) {
        notifyService.error(err);
     }
