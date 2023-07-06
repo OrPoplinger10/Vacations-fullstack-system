@@ -12,7 +12,9 @@ function Home(): JSX.Element {
           Create the best vacation for you
         </div>
         <br />
+        <div className="TwoHalfOfTitleHome">
         and your family
+        </div>
       </h1>
       <p className="subTitleHome">
         Travel to your favorite city

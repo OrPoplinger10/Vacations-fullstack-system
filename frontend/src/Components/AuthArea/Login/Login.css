@@ -82,3 +82,11 @@
 
 }
 
+@media only screen and (max-width: 410px) {
+
+    .login-box {
+        min-width:380px;
+    }
+
+}
+

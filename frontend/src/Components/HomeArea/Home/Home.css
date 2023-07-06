@@ -58,7 +58,6 @@
         line-height:80px;
      }
 
-
 }
 
 @media only screen and (max-width:600px) {
@@ -71,6 +70,11 @@
         background-clip: text;
         -webkit-background-clip: text;
     }
+
+    .TwoHalfOfTitleHome {
+        line-height: 75px;
+     }
+
 
 
 }

@@ -2,16 +2,16 @@ body {
     position: relative;
     min-height: 52vh;
     margin: 0;
-  }
-  
- 
+}
+
+
 
 .Copyrights {
-    
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   bottom: -250px; 
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    bottom: -250px;
     width: 100%;
     background: #3586ff;
     min-height: 100px;
@@ -20,7 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
+
 }
 
 .social-icon {
@@ -36,10 +36,16 @@ body {
 
 
 
-.facebookIcon, .twitterIcon, .linkedinIcon, .instagramIcon,
-.home, .about, .team, .contacts {
+.facebookIcon,
+.twitterIcon,
+.linkedinIcon,
+.instagramIcon,
+.home,
+.about,
+.team,
+.contacts {
 
-    color:#fff;
+    color: #fff;
     margin: 0 10px;
     display: inline-block;
     transition: 0.5s;
@@ -48,7 +54,10 @@ body {
 
 }
 
-.facebookIcon:hover, .twitterIcon:hover, .linkedinIcon:hover, .instagramIcon:hover {
+.facebookIcon:hover,
+.twitterIcon:hover,
+.linkedinIcon:hover,
+.instagramIcon:hover {
 
     transform: translateY(-10px);
 
@@ -56,11 +65,11 @@ body {
 
 .allRightsReserved {
 
-    
+
     color: #fff;
     text-align: center;
     margin-top: 15px;
-    margin-bottom:-5px;
+    margin-bottom: -5px;
     font-size: 1.1em;
 
 }
@@ -69,7 +78,7 @@ body {
 
 .wave {
     position: absolute;
-    top:-64px;
+    top: -64px;
     left: 0;
     width: 100%;
     height: 100px;
@@ -79,37 +88,38 @@ body {
 
 .wave#wave1 {
     z-index: 1000;
-    opacity:1;
+    opacity: 1;
     bottom: 0;
     animation: animateWave 4s linear infinite;
 }
 
 .wave#wave2 {
     z-index: 999;
-    opacity:0.5;
+    opacity: 0.5;
     bottom: 10px;
     animation: animateWave_02 3s linear infinite;
 }
 
 .wave#wave3 {
     z-index: 1000;
-    opacity:0.2;
+    opacity: 0.2;
     bottom: 15px;
     animation: animateWave 3s linear infinite;
 }
 
 .wave#wave4 {
     z-index: 999;
-    opacity:0.7;
+    opacity: 0.7;
     bottom: 20px;
     animation: animateWave_02 4s linear infinite;
 }
 
 @keyframes animateWave {
 
-    0%{
+    0% {
         background-position-x: 1000px;
     }
+
     100% {
         background-position: 0px;
     }
@@ -117,12 +127,11 @@ body {
 
 @keyframes animateWave_02 {
 
-    0%{
+    0% {
         background-position-x: 1000px;
     }
+
     100% {
         background-position: 0px;
     }
 }
-
-

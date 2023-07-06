@@ -84,6 +84,15 @@
 
 }
 
+@media only screen and (max-width: 410px) {
+
+    .register-box {
+        min-width:380px;
+        padding: 25px;
+    }
+
+}
+
 
 
 

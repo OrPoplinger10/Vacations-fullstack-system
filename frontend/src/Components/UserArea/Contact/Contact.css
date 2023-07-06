@@ -82,5 +82,14 @@
 }
 
 
+@media only screen and (max-width: 410px) {
+
+    .contactUs-box {
+        min-width:380px;
+    }
+
+}
+
+
 
 
