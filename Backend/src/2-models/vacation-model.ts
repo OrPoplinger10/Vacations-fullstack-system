@@ -24,14 +24,18 @@ class VacationModel{
       this.image = vacation.image;
 
   }
-
+  
   private static postValidationSchema = Joi.object ({
 
      vacationId: Joi.number().forbidden().positive().integer(),
      vacationDestination: Joi.string().required().min(3).max(50),
      vacationDescription: Joi.string().required().min(10).max(1000),
      startDate: Joi.date().min(new Date()).required(),
-     endDate: Joi.date().min(new Date()).required(),
+     endDate: Joi.date().min(Joi.ref("startDate")) // Ensures end date is after start date
+     .required()
+     .messages({
+       "date.min": "End date must be after the start date",
+     }),
      price: Joi.number().required().positive(),
      imageUrl: Joi.string(),
      image: Joi.any().optional().custom((value, helpers) => {
@@ -49,7 +53,11 @@ class VacationModel{
      vacationDestination: Joi.string().required().min(3).max(50),
      vacationDescription: Joi.string().required().min(10).max(1000),
      startDate: Joi.date().min(new Date()).required(),
-     endDate: Joi.date().min(new Date()).required(),
+     endDate: Joi.date().min(Joi.ref("startDate")) // Ensures end date is after start date
+     .required()
+     .messages({
+    "date.min": "End date must be after the start date",
+     }),
      price: Joi.number().required().positive(),
      imageUrl: Joi.string(),
      image: Joi.any().optional().custom((value, helpers) => {
