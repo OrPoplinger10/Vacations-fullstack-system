@@ -6,12 +6,6 @@ host: appConfig.mySqlHost,
 user: appConfig.mySqlUser,
 password: appConfig.mySqlPassword,
 database :appConfig.mySqlDatabase
-
-
-
-
-
-
 });
 
 function execute(sql: string, values?: any[]): Promise<any>{
@@ -31,9 +25,7 @@ connection.query(sql, values, (err, result) => {
  // Query succeeded
 resolve(result)
 
-
 })
-
 
 })
 

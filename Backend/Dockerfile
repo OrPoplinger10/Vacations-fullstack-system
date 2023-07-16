@@ -1,16 +1,11 @@
-# Building the image
-
-# Linux Alpine - latest version (not good for us)
-# From alpine
-
-# Linux Alpine 3.17.x
-# FROM alpine:3.17
-
 # Linux Alpine 3.17.x + Node.js 18.x
 FROM node:18-alpine3.17
 
 # Run command in a terminal when image is building - Install global libraries:
 RUN npm i -g ts-node
+
+#install nodemon for hot-reloading
+RUN npm i -g nodemon
 
 # Create our application directory:
 WORKDIR /app
@@ -24,7 +19,7 @@ RUN npm i
 # Take current directory and copy it into /app inside the image:
 COPY . /app
 
-# ------------------
+# -----------------------
 # Running the container:
 
 # when contaniner runs - which command should we use to run or app:

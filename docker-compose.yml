@@ -1,0 +1,109 @@
+# List of all services (containers);
+services:
+
+  # 1. database service:
+  vacations-database-service:
+
+    # Database image name:
+    image: orpopwebdev/vacations-database-image:1.0
+
+    # Build image from Dockerfile location:
+    build: ./Database
+
+    # Container name to create:
+    container_name: vacations-database-container
+
+    # Port binding (host-port:container-port):
+    ports:
+      - 3306:3306
+   
+    # Restart policy -> on crash what do we need to do?
+    restart: unless-stopped
+
+    # Environments Variables use inside our REST API: 
+    environment:
+      - MYSQL_HOST=localhost # Internally for the container.
+      - MYSQL_DATABASE=vacations-database
+      - MYSQL_USER=Orpop
+      - MYSQL_PASSWORD=Poplinger
+      - MYSQL_ROOT_PASSWORD=Poplinger # Nedded by MySQL image.
+
+    # Named Volume for persisting the data:
+    volumes:
+      - vacations-db:/var/lib/mysql
+      
+ # ------------------------------------------------------------
+
+  # 2. Backend REST API Service:
+  vacations-backend-service:
+
+    # Backend image name:
+    image: orpopwebdev/vacations-backend-image:1.0
+
+    # Build image from following Dockerfile location:
+    build: ./Backend
+
+    # Container name to create:
+    container_name: vacations-backend-container
+
+    # Port binding (host-port:container-port):
+    ports:
+      - 4000:4000
+   
+    # Restart policy -> on crash what do we need to do?
+    restart: unless-stopped
+
+    # Environments Variables use inside our REST API: 
+    environment:
+      - PORT=4000
+      - MYSQL_HOST=vacations-database-service # Database service name is the host name.
+      - MYSQL_DATABASE=vacations-database
+      - MYSQL_USER=Orpop
+      - MYSQL_PASSWORD=Poplinger
+
+    # Host olume for persisting the data:
+    volumes:
+      - ./Backend:/app
+
+    depends_on:
+      - vacations-database-service
+
+ # ------------------------------------------------------------
+
+  # 3. Fronted Service:
+  vacations-frontend-service:
+
+    # Fronted image name:
+    image: orpopwebdev/vacations-frontend-image:1.0
+
+    # Build image (if not exist) from following Dockerfile location:
+    build: ./Frontend
+
+    # Container name to create:
+    container_name: vacations-frontend-container
+
+    # Port binding (host-port:container-port):
+    ports:
+      - 3000:3000
+   
+    # Restart policy -> on crash what do we need to do?
+    restart: unless-stopped
+
+    # Which voluems we have between container and host:
+    volumes:
+      - ./Frontend:/app
+
+    depends_on:
+      - vacations-backend-service
+
+# List all your Named Volumes here:
+volumes:
+  vacations-db:
+
+# ------------- terminal commands -------------
+
+# run docker compose -> using terminal:
+# docker-compose up                (run docker)
+# docker-compose up -d             (run docker and detach terminal)
+# docker-compose up -d --build     (same and build image if even exist)
+# docker-compose down              (stop and delete container)  

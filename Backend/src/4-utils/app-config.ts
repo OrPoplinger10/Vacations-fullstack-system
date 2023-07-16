@@ -1,7 +1,7 @@
-class AppConfig{
+class AppConfig {
 
      // Server Port
-     public port = 4000;
+     public port = process.env.port || 4000;
 
      // Server Url:
      public serverUrl = "http://localhost:" + this.port;
@@ -10,18 +10,18 @@ class AppConfig{
      public imagesUrl = this.serverUrl + "/api/vacations/images/";
 
      // Database host( on which computer the database exists);
-     public mySqlHost = "localhost";
+     public mySqlHost = process.env.MYSQL_HOST || "localhost";
 
      // Database user
-     public mySqlUser ="root"
+     public mySqlUser = process.env.MYSQL_USER || "root"
 
      // Database password
-     public mySqlPassword =""; 
+     public mySqlPassword = process.env.MYSQL_PASSWORD || "";
 
      // Database Name:
-     public mySqlDatabase = "vacations-database";
+     public mySqlDatabase = process.env.MYSQL_DATABASE || "vacations-database";
 
-     public socketPort = 4001;
+     public socketPort = process.env.port || 4001;
 
 }
 
