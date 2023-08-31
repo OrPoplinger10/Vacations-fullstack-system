@@ -15,7 +15,8 @@
     "@types/jsonwebtoken": "^9.0.2",
     "@types/mysql": "^2.15.21",
     "@types/node": "^18.14.1",
-    "@types/uuid": "^9.0.1"
+    "@types/uuid": "^9.0.1",
+    "ts-node": "^10.9.1"
   },
   "dependencies": {
     "cors": "^2.8.5",

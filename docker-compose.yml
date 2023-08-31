@@ -24,7 +24,7 @@ services:
     environment:
       - MYSQL_HOST=localhost # Internally for the container.
       - MYSQL_DATABASE=vacations-database
-      - MYSQL_USER=Orpop
+      - MYSQL_USER=Or
       - MYSQL_PASSWORD=Poplinger
       - MYSQL_ROOT_PASSWORD=Poplinger # Nedded by MySQL image.
 
@@ -34,13 +34,13 @@ services:
       
  # ------------------------------------------------------------
 
-  # 2. Backend REST API Service:
+  # 2. Backend Service:
   vacations-backend-service:
 
     # Backend image name:
     image: orpopwebdev/vacations-backend-image:1.0
 
-    # Build image from following Dockerfile location:
+    # Build image from Dockerfile location:
     build: ./Backend
 
     # Container name to create:
@@ -58,7 +58,7 @@ services:
       - PORT=4000
       - MYSQL_HOST=vacations-database-service # Database service name is the host name.
       - MYSQL_DATABASE=vacations-database
-      - MYSQL_USER=Orpop
+      - MYSQL_USER=Or
       - MYSQL_PASSWORD=Poplinger
 
     # Host olume for persisting the data:

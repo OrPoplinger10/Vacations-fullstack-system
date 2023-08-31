@@ -37,7 +37,6 @@ server.use(routeNotFound);
 // Handle catch-all
 server.use(catchAll);
 
-
 server.listen(appConfig.port, () => console.log("Listening on http://localhost:" + appConfig.port));
 
 // Create server for socket service:
